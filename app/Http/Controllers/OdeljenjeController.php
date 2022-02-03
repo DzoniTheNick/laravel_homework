@@ -14,7 +14,8 @@ class OdeljenjeController extends Controller
      */
     public function index()
     {
-        //
+        $odeljenja = Odeljenje::all();
+        return $odeljenja;
     }
 
     /**
@@ -44,9 +45,10 @@ class OdeljenjeController extends Controller
      * @param  \App\Models\Odeljenje  $odeljenje
      * @return \Illuminate\Http\Response
      */
-    public function show(Odeljenje $odeljenje)
+    public function show($index)
     {
-        //
+        $odeljenje = Odeljenje::find($index);
+        return $odeljenje;
     }
 
     /**

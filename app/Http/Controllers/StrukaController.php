@@ -14,7 +14,8 @@ class StrukaController extends Controller
      */
     public function index()
     {
-        //
+        $struke = Struka::all();
+        return $struke;
     }
 
     /**
@@ -44,9 +45,10 @@ class StrukaController extends Controller
      * @param  \App\Models\Struka  $struka
      * @return \Illuminate\Http\Response
      */
-    public function show(Struka $struka)
+    public function show($index)
     {
-        //
+        $struka = Struka::find($index);
+        return $struka; 
     }
 
     /**
