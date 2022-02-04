@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Struka;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB as FacadesDB;
+use App\Http\Resources\strukaResource;
 
-class UserController extends Controller
+class StrukaControllerWithResource extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return $users;
+        //
     }
 
     /**
@@ -43,22 +42,21 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Struka  $struka
      * @return \Illuminate\Http\Response
      */
-    public function show($index)
+    public function show(Struka $struka)
     {
-        $user = User::find($index);
-        return $user;
+        return new strukaResource($struka);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Struka  $struka
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Struka $struka)
     {
         //
     }
@@ -67,10 +65,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Struka  $struka
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Struka $struka)
     {
         //
     }
@@ -78,11 +76,11 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Struka  $struka
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy(Struka $struka)
     {
-       
+        //
     }
 }

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OdeljenjeController;
 use App\Http\Controllers\StrukaController;
+use App\Http\Controllers\StrukaControllerWithResource;
 use App\Http\Controllers\UserController;
 use App\Http\Resources\StrukaResource;
 use Illuminate\Http\Request;
@@ -22,9 +24,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::redirect('/goToUseful', 'https://moodle.elab.fon.bg.ac.rs');
+
 Route::get('/users', [UserController::class, 'index']);
 Route::get('user/{id}', [UserController::class, 'show']);
 Route::get('/odeljenja', [OdeljenjeController::class, 'index']);
 Route::get('/odeljenje/{id}', [OdeljenjeController::class, 'show']);
 Route::get('/struke', [StrukaController::class, 'index']);
 Route::get('/struka/{id}', [StrukaController::class, 'show']);
+
+Route::resource('/struka2', StrukaControllerWithResource::class);
+
+Route::post('/register', [AuthController::class, 'register']);
